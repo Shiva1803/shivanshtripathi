@@ -22,14 +22,14 @@ const Hero = () => {
             className="h-10 sm:h-12 w-auto object-contain hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all duration-300"
           />
         </a>
-        <a href="https://www.linkedin.com/in/shivansh-tripathi-4054b5256/" target="_blank" rel="noopener noreferrer" className="inline-block">
+        <a href="https://www.linkedin.com/in/shivansht1803/" target="_blank" rel="noopener noreferrer" className="inline-block">
           <img
             src="/linkedin.png"
             alt="LinkedIn"
             className="h-10 sm:h-12 w-auto object-contain hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all duration-300"
           />
         </a>
-        <a href="https://x.com/Shivansh_1803" target="_blank" rel="noopener noreferrer" className="inline-block">
+        <a href="https://x.com/iamShivanshT" target="_blank" rel="noopener noreferrer" className="inline-block">
           <img
             src="/twitter.png"
             alt="Twitter"
