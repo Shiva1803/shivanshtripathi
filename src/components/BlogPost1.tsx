@@ -6,7 +6,6 @@ import { ErrorAmplificationChart } from './charts/ErrorAmplificationChart'
 import { TrustOversightMatrix } from './charts/TrustOversightMatrix'
 
 const BlogPost1: React.FC = () => {
-  const { theme } = useTheme()
   const navigate = useNavigate()
   const [rainIntensity, setRainIntensity] = useState(150)
 
