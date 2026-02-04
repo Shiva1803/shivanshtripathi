@@ -1,0 +1,50 @@
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #111;
+    padding: 1rem;
+    z-index: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .project-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      #00ffe0,
+      #00ff6e,
+      #a633ff,
+      #00ffe0
+    );
+    animation: rotateGlow 4s linear infinite;
+    z-index: -1;
+  }
+  
+  .project-card::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #111;
+    border-radius: 1rem;
+    z-index: 1;
+  }
+  
+  @keyframes rotateGlow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
