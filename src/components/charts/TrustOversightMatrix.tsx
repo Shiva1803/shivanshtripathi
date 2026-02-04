@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function TrustOversightMatrix() {
   const matrix = [
     { oversight: 'High', autonomy: 'Low', risk: 10, color: 'bg-green-500' },
@@ -13,7 +11,6 @@ export function TrustOversightMatrix() {
     { oversight: 'Low', autonomy: 'High', risk: 95, color: 'bg-red-600' },
   ]
 
-  const oversightLevels = ['High', 'Medium', 'Low']
   const autonomyLevels = ['Low', 'Medium', 'High']
 
   return (

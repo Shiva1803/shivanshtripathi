@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
 import { SovietAircraftTimeline } from './charts/SovietAircraftTimeline'
 import { DesignPhilosophyChart } from './charts/DesignPhilosophyChart'
 
 const BlogPost3: React.FC = () => {
-  const { theme } = useTheme()
   const navigate = useNavigate()
   const [rainIntensity, setRainIntensity] = useState(150)
 

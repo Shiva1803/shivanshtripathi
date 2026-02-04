@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
 import { SpeedTrustChart } from './charts/SpeedTrustChart'
 import { ErrorAmplificationChart } from './charts/ErrorAmplificationChart'
 import { TrustOversightMatrix } from './charts/TrustOversightMatrix'

@@ -52,7 +52,8 @@ export function EnergyComparisonChart() {
                 borderRadius: '8px',
                 color: '#fff'
               }}
-              formatter={(value: number) => {
+              formatter={(value: number | undefined) => {
+                if (!value) return ['0 W', 'Power']
                 if (value >= 1000000) return [`${(value / 1000000).toFixed(1)} MW`, 'Power']
                 if (value >= 1000) return [`${(value / 1000).toFixed(0)} KW`, 'Power']
                 return [`${value} W`, 'Power']
