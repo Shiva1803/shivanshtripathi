@@ -43,7 +43,7 @@ const ProjectsPage = () => {
     ]
 
     return (
-        <div className="min-h-screen pt-6 sm:pt-8 pb-12 sm:pb-16">
+        <div className="min-h-screen pt-0 pb-12 sm:pb-16">
             <ProjectsHeader />
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-6 sm:pb-8">All Projects</h1>

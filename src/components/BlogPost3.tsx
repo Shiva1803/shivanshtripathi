@@ -22,7 +22,7 @@ const BlogPost3: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-bg-dark text-black dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-bg-dark text-black dark:text-white transition-colors duration-300 pt-0">
       {/* Header */}
       <div className="sticky top-4 z-40 mb-8">
         <header className="flex justify-between items-center bg-black/5 dark:bg-white/15 backdrop-blur-md rounded-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 border border-black/10 dark:border-white/30 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-colors duration-300 max-w-4xl mx-4 sm:mx-6 lg:mx-auto">

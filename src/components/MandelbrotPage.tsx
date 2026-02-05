@@ -129,9 +129,9 @@ const MandelbrotPage: React.FC = () => {
   }, [handleReset])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-bg-dark text-black dark:text-white relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-bg-dark text-black dark:text-white relative overflow-hidden transition-colors duration-300 pt-0">
       {/* Header - On charcoal background */}
-      <div className="relative top-4 z-20 mb-4">
+      <div className="sticky top-4 z-20 mb-4">
         <header className="flex flex-row justify-between items-center bg-black/5 dark:bg-white/15 backdrop-blur-md rounded-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 border border-black/10 dark:border-white/30 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-colors duration-300 max-w-4xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="flex items-center gap-2 sm:gap-3">
             <img
