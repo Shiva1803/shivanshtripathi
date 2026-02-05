@@ -18,18 +18,20 @@ export function SpeedTrustChart() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         Trust decreases as decision speed exceeds human verification capacity
       </p>
-      <div className="h-80 w-full">
+      <div className="h-64 md:h-80 w-full">
         <ResponsiveContainer>
-          <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#444" opacity={0.3} />
             <XAxis 
               dataKey="speed" 
-              label={{ value: 'Decision Speed (Mach)', position: 'insideBottom', offset: -5 }}
+              label={{ value: 'Decision Speed (Mach)', position: 'insideBottom', offset: -5, fontSize: 12 }}
               stroke="#888"
+              tick={{ fontSize: 11 }}
             />
             <YAxis 
-              label={{ value: 'Human Verifiability (%)', angle: -90, position: 'insideLeft' }}
+              label={{ value: 'Human Verifiability (%)', angle: -90, position: 'insideLeft', fontSize: 12 }}
               stroke="#888"
+              tick={{ fontSize: 11 }}
             />
             <Tooltip 
               contentStyle={{ 

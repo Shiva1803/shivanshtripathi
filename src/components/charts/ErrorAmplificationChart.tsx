@@ -19,9 +19,9 @@ export function ErrorAmplificationChart() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         Small hallucinations compound into systemic errors when scaled at high speed
       </p>
-      <div className="h-80 w-full">
+      <div className="h-64 md:h-80 w-full">
         <ResponsiveContainer>
-          <AreaChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <AreaChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
             <defs>
               <linearGradient id="errorGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#ef4444" stopOpacity={0.8}/>
@@ -31,12 +31,14 @@ export function ErrorAmplificationChart() {
             <CartesianGrid strokeDasharray="3 3" stroke="#444" opacity={0.3} />
             <XAxis 
               dataKey="iteration" 
-              label={{ value: 'Iterations / Time', position: 'insideBottom', offset: -5 }}
+              label={{ value: 'Iterations / Time', position: 'insideBottom', offset: -5, fontSize: 12 }}
               stroke="#888"
+              tick={{ fontSize: 11 }}
             />
             <YAxis 
-              label={{ value: 'Error Impact (Relative)', angle: -90, position: 'insideLeft' }}
+              label={{ value: 'Error Impact (Relative)', angle: -90, position: 'insideLeft', fontSize: 12 }}
               stroke="#888"
+              tick={{ fontSize: 11 }}
             />
             <Tooltip 
               contentStyle={{ 

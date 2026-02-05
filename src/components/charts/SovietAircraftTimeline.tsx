@@ -46,9 +46,9 @@ export function SovietAircraftTimeline() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         Maximum speed vs introduction year for major Soviet aircraft
       </p>
-      <div className="h-96 w-full">
+      <div className="h-64 md:h-96 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart margin={{ top: 20, right: 30, left: 60, bottom: 50 }}>
+          <ScatterChart margin={{ top: 20, right: 10, left: 50, bottom: 40 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#444" opacity={0.3} />
             <XAxis 
               dataKey="year" 

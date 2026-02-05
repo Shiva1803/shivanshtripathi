@@ -18,9 +18,9 @@ export function EfficiencyScalingChart() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         How biological and artificial systems scale with size (efficiency relative to baseline)
       </p>
-      <div className="h-80 w-full">
+      <div className="h-64 md:h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 50, bottom: 30 }}>
+          <LineChart data={data} margin={{ top: 20, right: 10, left: 40, bottom: 30 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#444" opacity={0.3} />
             <XAxis 
               dataKey="scale"

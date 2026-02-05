@@ -18,7 +18,7 @@ export function DesignPhilosophyChart() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
         Soviet vs Western aerospace design priorities (relative scale)
       </p>
-      <div className="h-96 w-full">
+      <div className="h-64 md:h-96 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data}>
             <PolarGrid stroke="#444" opacity={0.3} />
