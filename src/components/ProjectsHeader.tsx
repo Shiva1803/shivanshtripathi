@@ -43,7 +43,7 @@ const ProjectsHeader = () => {
                     />
                     <div className="text-lg sm:text-xl md:text-2xl font-bold text-black dark:text-white logo-glow-text whitespace-nowrap" onClick={handleLogoClick}>shivansh</div>
                 </div>
-                <Link to="/" className="text-black dark:text-white font-medium hover:text-accent-blue transition-colors text-sm sm:text-base whitespace-nowrap">Back to Home</Link>
+                <Link to="/" className="text-black dark:text-white font-medium hover:text-accent-blue dark:hover:text-blue-400 transition-colors text-sm sm:text-base whitespace-nowrap">Back to Home</Link>
             </header>
         </>
     )
