@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
         <a href="https://github.com/Shiva1803" target="_blank" rel="noopener noreferrer" className="inline-block">
           <img
-            src={theme === 'dark' ? '/github.png' : '/github-logo-black.png'}
+            src="/githubnew.png"
             alt="GitHub"
             className="h-10 sm:h-12 w-auto object-contain hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all duration-300"
           />
