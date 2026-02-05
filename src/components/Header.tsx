@@ -61,7 +61,7 @@ const Header = () => {
           transform: rotate(-45deg) translate(5px, -5px);
         }
       `}</style>
-      <header className="relative z-40 mb-6 sm:mb-8 md:mb-12">
+      <header className="sticky top-4 z-40 mb-6 sm:mb-8 md:mb-12">
         <div className="flex flex-row justify-between items-center bg-black/5 dark:bg-white/15 backdrop-blur-md rounded-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 border border-black/10 dark:border-white/30 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-colors duration-300 max-w-4xl mx-4 sm:mx-6 lg:mx-auto">
           <button
             onClick={toggleTheme}
