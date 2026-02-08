@@ -15,7 +15,7 @@ const Footer = () => {
 
         <a href="/sitemap.xml" className="hover:text-black dark:hover:text-white transition-colors underline">Sitemap</a>
 
-        <a href="#" className="hover:text-black dark:hover:text-white transition-colors underline">Github</a>
+        <a href="https://github.com/Shiva1803/shivanshtripathi" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors underline">Github</a>
 
         <div className="flex flex-col items-start md:items-end w-full md:w-auto">
           <p className="text-xs mb-1 text-black/50 dark:text-white/50">

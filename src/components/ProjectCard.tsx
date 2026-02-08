@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, tags, lin
                 <div className="flex gap-3 sm:gap-4 mt-6 sm:mt-8">
 
                     <a href={link || '#'} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium hover:scale-110 transition-transform text-xs sm:text-sm">
-                        <img src="/github-logo-black.png" alt="Source" className="w-4 h-4 sm:w-5 sm:h-5 invert dark:invert-0" />
+                        <img src="/githubnew.png" alt="Source" className="w-4 h-4 sm:w-5 sm:h-5 invert dark:invert-0" />
                         Source
                     </a>
                 </div>

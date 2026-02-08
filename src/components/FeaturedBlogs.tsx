@@ -18,11 +18,11 @@ const FeaturedBlogs = () => {
             image: "/SR-71.jpg"
         },
         {
-            title: "The Line that LLMs can never cross. Neural Scaling Laws",
+            title: "The Future of AI-Assisted Coding and How It Will Shape Development",
             excerpt: "Tips and tricks to customize your design system efficiently using tailwind.config.js.",
             date: "Dec 15, 2025",
             category: "AI, Knowledge",
-            image: "/LLMsBoundary.png"
+            image: "/claudeai.jpg"
         },
         {
             title: "The Energy Cost of Intelligence: From Ant Colonies to Data Centers",
@@ -50,7 +50,7 @@ const FeaturedBlogs = () => {
                 {blogs.map((blog, index) => (
                     <a
                         key={index}
-                        href={index === 0 ? '/blog/mach5' : index === 2 ? '/blog/energy-intelligence' : index === 3 ? '/blog/soviet-aerospace' : '#'}
+                        href={index === 0 ? '/blog/mach5' : index === 1 ? '/blog/ai-coding' : index === 2 ? '/blog/energy-intelligence' : index === 3 ? '/blog/soviet-aerospace' : '#'}
                         className="group relative rounded-2xl border border-gray-400 dark:border-[#495057] hover:border-black dark:hover:border-white hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden h-56 sm:h-64 block"
                     >
                         {/* Background Image */}

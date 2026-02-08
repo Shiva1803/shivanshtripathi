@@ -1,31 +1,12 @@
-# Portfolio - React + TypeScript + Tailwind
+# Shivansh Tripathi - Portfolio
 
-Modern portfolio website built with React, TypeScript, and Tailwind CSS.
+My personal portfolio and blog, built with React, TypeScript, and Tailwind CSS. Features interactive visualizations, technical writing on AI and aerospace engineering, and a custom Mandelbrot set explorer. The site showcases my projects, thoughts on technology, and experiments with data visualization—all wrapped in a clean, responsive design with dark mode support.
 
-## Setup
+Live at [shivanshtripathi.com](https://shivanshtripathi.com)
 
-Install dependencies:
+## Quick Start
+
 ```bash
 npm install
-```
-
-## Development
-
-Run the development server:
-```bash
 npm run dev
-```
-
-## Build
-
-Build for production:
-```bash
-npm run build
-```
-
-## Preview
-
-Preview production build:
-```bash
-npm run preview
 ```

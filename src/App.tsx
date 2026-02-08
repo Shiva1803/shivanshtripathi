@@ -5,6 +5,7 @@ import BlogsPage from './components/BlogsPage'
 import BlogPost1 from './components/BlogPost1'
 import BlogPost2 from './components/BlogPost2'
 import BlogPost3 from './components/BlogPost3'
+import BlogPost4 from './components/BlogPost4'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import MandelbrotPage from './components/MandelbrotPage'
 import Footer from './components/Footer'
@@ -28,6 +29,7 @@ function App() {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/blogs" element={<BlogsPage />} />
               <Route path="/blog/mach5" element={<BlogPost1 />} />
+              <Route path="/blog/ai-coding" element={<BlogPost4 />} />
               <Route path="/blog/energy-intelligence" element={<BlogPost2 />} />
               <Route path="/blog/soviet-aerospace" element={<BlogPost3 />} />
               <Route path="/mandelbrot" element={<MandelbrotPage />} />
