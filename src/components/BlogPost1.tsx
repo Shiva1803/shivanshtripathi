@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SpeedTrustChart } from './charts/SpeedTrustChart'
-import { ErrorAmplificationChart } from './charts/ErrorAmplificationChart'
-import { TrustOversightMatrix } from './charts/TrustOversightMatrix'
+import VerificationTimeChart from './charts/VerificationTimeChart'
 
 const BlogPost1: React.FC = () => {
   const navigate = useNavigate()
@@ -20,27 +18,6 @@ const BlogPost1: React.FC = () => {
     const newIntensity = intensityLevels[nextIndex]
     setRainIntensity(newIntensity)
     window.dispatchEvent(new CustomEvent('rainIntensityChange', { detail: newIntensity }))
-  }
-
-  // Trust Meter State
-  const [accuracy, setAccuracy] = useState(75)
-  const [hallucinationRisk, setHallucinationRisk] = useState(30)
-  const [humanOversight, setHumanOversight] = useState(50)
-  const [taskStakes, setTaskStakes] = useState<'low' | 'medium' | 'high'>('medium')
-
-  const computeTrustScore = () => {
-    const base = accuracy - hallucinationRisk
-    const oversightBonus = humanOversight * 0.5
-    const stakesPenalty = taskStakes === 'high' ? 30 : taskStakes === 'medium' ? 15 : 0
-    return Math.max(0, Math.min(100, base + oversightBonus - stakesPenalty))
-  }
-
-  const trustScore = computeTrustScore()
-
-  const getTrustLabel = () => {
-    if (trustScore >= 70) return 'High Trust'
-    if (trustScore >= 40) return 'Moderate Trust'
-    return 'Low Trust'
   }
 
   return (
@@ -67,329 +44,180 @@ const BlogPost1: React.FC = () => {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 pb-16">
         <div className="max-w-3xl mx-auto">
-            <article>
-              {/* Hero Image */}
-              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/SR-71.jpg" 
-                  alt="AI operating at extreme speed illustration" 
-                  className="w-full h-auto"
-                />
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center italic">
-                  Metaphor: Speed without oversight — Can we trust systems operating beyond human verification capacity?
-                </p>
-              </div>
+          <article>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white leading-tight">
+              Can an LLM Be Trusted at Mach 5?
+            </h1>
+            
+            <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+              Published: February 6, 2026
+            </p>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white leading-tight">
-                Can an LLM Be Trusted at Mach 5?
-              </h1>
-              
-              <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
-                Published: February 6, 2026
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>
+
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              On November 13, 2023, Air Canada's chatbot told a customer named Jake Moffatt that he could get a refund for his flight after he'd already bought it. Moffatt was flying to his grandmother's funeral and asked about bereavement fares. The chatbot said he could buy the ticket now and apply for the discount later. He did. Air Canada refused to pay him back, saying the chatbot was a "separate legal entity" responsible for its own mistakes. A small claims court in British Columbia said that was ridiculous and ordered the airline to pay up. The chatbot had made up a policy that didn't exist.
+            </p>
+
+            {/* Airline Check-in Image */}
+            <div className="my-8 rounded-xl overflow-hidden shadow-2xl max-w-3xl mx-auto">
+              <img 
+                src="/image copy 2.png" 
+                alt="Airline check-in area" 
+                className="w-full h-auto"
+              />
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center italic">
+                Air Canada's chatbot invented a bereavement fare policy that didn't exist. The airline argued the bot was a 'separate legal entity.' A tribunal disagreed.
               </p>
+            </div>
 
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              This gets at the main problem with AI working at what we'll call "Mach 5": not actual supersonic speed, but making decisions faster than humans can check them. The chatbot answered instantly. Moffatt believed it. Nobody at Air Canada looked at what happened until it was too late. The system ran faster than anyone could watch it, and when it screwed up, nobody caught it.
+            </p>
 
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                Artificial intelligence systems, especially large language models (LLMs), have become astonishingly capable over the past few years — generating code, summarizing research, creating art, and even drafting legal text. But as they grow faster and more powerful, a pressing question emerges: Can we trust these models when they operate at speeds or scales where humans can't keep up — metaphorically, at "Mach 5"?
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              The problem isn't that AI makes mistakes. People make mistakes all the time. The problem is that AI makes mistakes at massive scale, sounds confident while doing it, and speaks so smoothly that it seems trustworthy even when it's completely wrong. And as these systems get faster and spread everywhere, the gap between how fast they work and how fast we can check their work keeps growing.
+            </p>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
+
+            <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white relative after:content-[''] after:absolute after:bottom-[-0.5rem] after:left-0 after:w-12 after:h-[3px] after:bg-accent-blue">
+              The Problem That Won't Go Away
+            </h2>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Large language models work by predicting what word should come next based on patterns they've seen in their training data. They don't actually know facts: they know what usually follows what. When GPT-4 tells you the Eiffel Tower is 330 meters tall, it's not pulling up a fact from memory. It's guessing that "330 meters" is what usually comes after "the Eiffel Tower is" based on seeing millions of examples.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              This works great for common knowledge. It fails randomly for everything else.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Research shows that these AI models will agree with you even when you're wrong. OpenAI's own tests found GPT-4 made stuff up in about 15-20% of answers, depending on what you asked. That's better than earlier versions, but it's not zero. And here's the scary part: when it's wrong, it sounds just as confident as when it's right.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Arvind Narayanan at Princeton found cases where ChatGPT invented entire legal cases: complete with case names, court details, and rulings: that never happened. Lawyers used these fake cases in real court filings. Judges punished them for it. The lawyers said they trusted ChatGPT and didn't check. The AI had spit out convincing legal text faster than anyone could verify it was real.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              Here's what makes this worse: bigger, better AI models don't just make fewer mistakes: they make more convincing mistakes. GPT-3 might give you obviously wrong answers. GPT-4 gives you wrong answers that sound right, include sources, and seem well-reasoned.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              When you can't tell the difference between real information and made-up information without checking everything yourself, and the AI spits out answers faster than you can check them, you've got a serious trust problem.
+            </p>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
+
+            <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white relative after:content-[''] after:absolute after:bottom-[-0.5rem] after:left-0 after:w-12 after:h-[3px] after:bg-accent-blue">
+              The Speed Problem
+            </h2>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              In December 2024, Microsoft gave millions of workers access to Copilot in Office 365. Employees started using it to write emails, summarize documents, and create reports. Most people don't carefully check what AI writes: they skim it, make small edits, and hit send.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              This is "Mach 5" in action. An AI reads a 50-page technical document and writes a three-paragraph summary in two seconds. Reading that summary takes 20 seconds. Actually checking it against the original document takes 20 minutes. Most people take the shortcut.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              If the summary has a mistake: getting a detail wrong, flipping a conclusion, or leaving out something important: that mistake spreads. It gets copied into emails. Those emails affect decisions. The decisions pile up. By the time someone notices, dozens of people have acted on bad information.
+            </p>
+
+            {/* Verification Time Chart */}
+            <VerificationTimeChart />
+
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Stanford researchers studied this with doctors. When doctors used AI suggestions for diagnoses, they spent about 30 seconds reviewing each one before saying yes or no. When the AI was wrong, doctors caught it only 65% of the time. When the AI was confidently wrong: giving incorrect diagnoses with high confidence scores: doctors caught it only 40% of the time.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              The doctors weren't bad at their jobs. They were overwhelmed. The AI made suggestions faster than they could carefully check them. The pressure to see more patients and get through more cases meant trusting the AI even when they probably shouldn't.
+            </p>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
+
+            <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white relative after:content-[''] after:absolute after:bottom-[-0.5rem] after:left-0 after:w-12 after:h-[3px] after:bg-accent-blue">
+              When Fast Becomes Too Fast
+            </h2>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              The real question isn't whether AI is useful. It obviously is. GitHub says people using Copilot finish coding tasks 55% faster. Customer service chatbots handle basic questions that would otherwise eat up staff time. AI writing tools help people communicate better.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              The question is whether the speed is worth the risk when things are moving too fast to check. And that depends entirely on what happens when it goes wrong.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              For creative writing, travel tips, or brainstorming, mistakes are annoying but harmless. You might waste time going to a restaurant that doesn't exist, but nobody gets hurt.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              For medical diagnosis, legal advice, financial decisions, or safety systems, it's completely different. A wrong drug interaction could kill someone. A fake legal case could put an innocent person in jail. A bad financial prediction could bankrupt a company.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              We're using the same technology: models that make stuff up at known rates and work faster than humans can check: for both low-risk and high-risk stuff. The technology doesn't know the difference. The risk is the same. Only what happens when it fails is different.
+            </p>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
+
+            <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white relative after:content-[''] after:absolute after:bottom-[-0.5rem] after:left-0 after:w-12 after:h-[3px] after:bg-accent-blue">
+              Building Systems You Can Actually Trust
+            </h2>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Some companies are doing this better. Claude now shows you where it got its information so you can check it. Google's medical AI flags answers it's not sure about. ChatGPT shows its work when writing code so you can see what it's doing.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              These are steps toward AI you can verify: systems designed to let you check their work without spending hours on it. But showing your work doesn't help if nobody actually checks.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              The real fix is changing how we use AI. AI outputs shouldn't go straight to users: they should go through review systems. Important decisions need human checking, not as something optional but as a required step. Speed gains should be measured after accounting for checking time, not before.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
+              Some fields already do this. Airplane autopilots work faster than humans can react, but critical systems have backups, automatic cross-checks, and humans making final calls. Nuclear plants use AI for monitoring, but humans make shutdown decisions. The systems run fast, but trust is built through layers of checking.
+            </p>
+
+            {/* Aviation Cockpit Image */}
+            <div className="my-8 rounded-xl overflow-hidden shadow-2xl max-w-3xl mx-auto">
+              <img 
+                src="/image copy 3.png" 
+                alt="Aviation cockpit showing human-AI collaboration" 
+                className="w-full h-auto"
+              />
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center italic">
+                Critical systems like aviation combine AI speed with mandatory human oversight—a model other industries have yet to adopt.
               </p>
+            </div>
 
-              <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
-                For the purposes of this article, <strong>Mach 5</strong> is not about aerodynamics. It stands for decision-making speed and complexity far beyond human processing, where LLMs might produce outputs faster than people can meaningfully evaluate them.
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              Software development is starting to get this. The best AI coding tools don't just write code: they explain it, test it, and fit into review processes. The speed boost comes from cutting out boring work, not from skipping oversight.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              Other fields haven't caught up. Customer service uses chatbots with barely any supervision. Healthcare tries out AI diagnosis without enough testing. Legal tech companies sell AI research tools without proper warnings about fake information.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
+              The pattern is always the same: launch first, deal with trust problems later. It works until it doesn't.
+            </p>
+
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
+
+            <div className="bg-gradient-to-r from-accent-blue/10 to-purple-500/10 border border-accent-blue/30 rounded-xl p-6 my-8">
+              <p className="text-base md:text-lg leading-relaxed text-black/90 dark:text-white/90 italic">
+                AI will keep getting faster. The question is whether we build trust systems that keep up with that speed, or whether we just go for maximum velocity until something really bad happens. Air Canada's chatbot mistake cost them a few hundred dollars in court. The next failure might cost a lot more. Speed without checking isn't efficiency: it's risk we're ignoring until we can't anymore.
               </p>
-
-              {/* Chart 1 - Speed vs Trust */}
-              <SpeedTrustChart />
-
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white">
-                <span className="text-accent-blue mr-3">01</span>
-                Reliability and Hallucination
-              </h2>
-              
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                LLMs are trained to predict the next token based on patterns seen in vast datasets — and this very strength also shapes their core limitation. They do not "understand" information in the human sense; they generate plausible continuations based on statistical correlations. Because of this, they sometimes produce <strong>hallucinations</strong> — responses that may be coherent but factually incorrect or misleading.
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                Even highly advanced models can generate convincingly structured misinformation, and researchers have observed that hallucination rates do not always decrease monotonically with model size.
-              </p>
-
-              <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-4 my-6 rounded-r-lg">
-                <p className="text-base md:text-lg leading-relaxed text-black/80 dark:text-white/80">
-                  <strong>Implication:</strong> At ultra-rapid output speeds — where humans aren't scrutinizing every word — the chance of propagating inaccurate or misleading statements increases exponentially.
-                </p>
-              </div>
-
-              {/* Chart 2 - Error Amplification */}
-              <ErrorAmplificationChart />
-
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white">
-                <span className="text-accent-blue mr-3">02</span>
-                The Trust Paradox
-              </h2>
-              
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                As LLMs become better at sounding authoritative and fluent, they also become harder to vet. This phenomenon — sometimes called the <strong>AI trust paradox</strong> — occurs because advanced models produce text that feels correct, even when it's not.
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                A system that combines speed with this kind of fluency can easily outpace the user's ability to verify its output. Therefore, trust becomes <em>perceived</em> rather than <em>verified</em> — a risky situation for tasks with real-world consequences.
-              </p>
-
-              {/* Interactive Trust Dynamics - Horizontal */}
-              <div className="my-12 bg-[#f9f7f2] dark:bg-[#1a1a1a] rounded-sm p-8 border border-[#d4cfc4] dark:border-[#2a2a2a]">
-                <div className="mb-6">
-                  <h3 className="text-xl font-serif mb-2 text-[#2c2c2c] dark:text-[#e8e6e1] tracking-tight">
-                    Interactive Trust Model
-                  </h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#9a9a9a] leading-relaxed font-light">
-                    Explore how system parameters affect trustworthiness
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left: Controls */}
-                  <div className="space-y-6">
-                    <div>
-                      <div className="flex justify-between items-baseline mb-3">
-                        <label className="text-sm text-[#2c2c2c] dark:text-[#e8e6e1] font-light tracking-wide">
-                          Accuracy
-                        </label>
-                        <span className="font-mono text-sm text-[#6b6b6b] dark:text-[#9a9a9a]">
-                          {accuracy}%
-                        </span>
-                      </div>
-                      <div className="relative h-3 bg-[#e5e0d8] dark:bg-[#2a2a2a] rounded-full">
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={accuracy}
-                          onChange={(e) => setAccuracy(Number(e.target.value))}
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                        />
-                        <div 
-                          className="absolute left-0 top-0 h-full bg-[#5a7a5a] dark:bg-[#6a9a6a] transition-all duration-300 rounded-full"
-                          style={{ width: `${accuracy}%` }}
-                        ></div>
-                        <div 
-                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#2c2c2c] dark:bg-white border-2 border-white dark:border-[#1a1a1a] transition-all duration-300 shadow-lg"
-                          style={{ left: `calc(${accuracy}% - 8px)` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex justify-between items-baseline mb-3">
-                        <label className="text-sm text-[#2c2c2c] dark:text-[#e8e6e1] font-light tracking-wide">
-                          Hallucination Risk
-                        </label>
-                        <span className="font-mono text-sm text-[#6b6b6b] dark:text-[#9a9a9a]">
-                          {hallucinationRisk}%
-                        </span>
-                      </div>
-                      <div className="relative h-3 bg-[#e5e0d8] dark:bg-[#2a2a2a] rounded-full">
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={hallucinationRisk}
-                          onChange={(e) => setHallucinationRisk(Number(e.target.value))}
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                        />
-                        <div 
-                          className="absolute left-0 top-0 h-full bg-[#a05a5a] dark:bg-[#c07a7a] transition-all duration-300 rounded-full"
-                          style={{ width: `${hallucinationRisk}%` }}
-                        ></div>
-                        <div 
-                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#2c2c2c] dark:bg-white border-2 border-white dark:border-[#1a1a1a] transition-all duration-300 shadow-lg"
-                          style={{ left: `calc(${hallucinationRisk}% - 8px)` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex justify-between items-baseline mb-3">
-                        <label className="text-sm text-[#2c2c2c] dark:text-[#e8e6e1] font-light tracking-wide">
-                          Human Oversight
-                        </label>
-                        <span className="font-mono text-sm text-[#6b6b6b] dark:text-[#9a9a9a]">
-                          {humanOversight}%
-                        </span>
-                      </div>
-                      <div className="relative h-3 bg-[#e5e0d8] dark:bg-[#2a2a2a] rounded-full">
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={humanOversight}
-                          onChange={(e) => setHumanOversight(Number(e.target.value))}
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                        />
-                        <div 
-                          className="absolute left-0 top-0 h-full bg-[#5a7a5a] dark:bg-[#6a9a6a] transition-all duration-300 rounded-full"
-                          style={{ width: `${humanOversight}%` }}
-                        ></div>
-                        <div 
-                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#2c2c2c] dark:bg-white border-2 border-white dark:border-[#1a1a1a] transition-all duration-300 shadow-lg"
-                          style={{ left: `calc(${humanOversight}% - 8px)` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm text-[#2c2c2c] dark:text-[#e8e6e1] font-light tracking-wide mb-3">
-                        Task Stakes
-                      </label>
-                      <div className="flex gap-2">
-                        {(['low', 'medium', 'high'] as const).map((stake) => (
-                          <button
-                            key={stake}
-                            onClick={() => setTaskStakes(stake)}
-                            className={`flex-1 py-2 text-xs font-light tracking-wide transition-all duration-300 ${
-                              taskStakes === stake
-                                ? 'bg-[#2c2c2c] dark:bg-[#e8e6e1] text-[#f9f7f2] dark:text-[#1a1a1a]'
-                                : 'bg-transparent text-[#6b6b6b] dark:text-[#9a9a9a] border border-[#d4cfc4] dark:border-[#3a3a3a] hover:border-[#2c2c2c] dark:hover:border-[#e8e6e1]'
-                            }`}
-                          >
-                            {stake.charAt(0).toUpperCase() + stake.slice(1)}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Trust Score Visualization */}
-                  <div className="flex flex-col justify-center">
-                    <div className="relative h-48 flex items-end justify-center">
-                      <svg className="absolute inset-0 w-full h-full" style={{ opacity: 0.15 }}>
-                        <line x1="0" y1="25%" x2="100%" y2="25%" stroke="currentColor" strokeWidth="0.5" className="text-[#2c2c2c] dark:text-[#e8e6e1]" />
-                        <line x1="0" y1="50%" x2="100%" y2="50%" stroke="currentColor" strokeWidth="0.5" className="text-[#2c2c2c] dark:text-[#e8e6e1]" />
-                        <line x1="0" y1="75%" x2="100%" y2="75%" stroke="currentColor" strokeWidth="0.5" className="text-[#2c2c2c] dark:text-[#e8e6e1]" />
-                      </svg>
-                      
-                      <div className="relative w-full h-full flex flex-col justify-end">
-                        <div 
-                          className="w-full transition-all duration-700 ease-out relative"
-                          style={{ 
-                            height: `${trustScore}%`,
-                            background: trustScore >= 70 
-                              ? 'linear-gradient(to top, #4a5f4a, #5a7a5a)' 
-                              : trustScore >= 40 
-                              ? 'linear-gradient(to top, #8b7355, #a08968)'
-                              : 'linear-gradient(to top, #6b4a4a, #7a5a5a)'
-                          }}
-                        >
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-6 text-center">
-                      <div className="font-mono text-5xl text-[#2c2c2c] dark:text-[#e8e6e1] tracking-wider font-light">
-                        {trustScore.toFixed(0)}
-                      </div>
-                      <div className="text-sm text-[#6b6b6b] dark:text-[#9a9a9a] mt-2 font-light tracking-wide uppercase">
-                        {getTrustLabel()}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-[#d4cfc4] dark:border-[#2a2a2a]">
-                  <p className="text-xs text-[#6b6b6b] dark:text-[#9a9a9a] leading-relaxed font-light italic text-center">
-                    This model illustrates how trust varies with system configuration. Adjust parameters to explore different scenarios.
-                  </p>
-                </div>
-              </div>
-
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white">
-                <span className="text-accent-blue mr-3">03</span>
-                Context Matters: Safety vs. Creativity
-              </h2>
-              
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                In low-stakes creative tasks — drafting blog posts, brainstorming ideas, or generating stylistic prose — occasional errors are tolerable. But trust needs to be rethought when the model's role impacts safety, finance, law, or medicine.
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                Studies of LLM reliability in evaluative roles (e.g., as a judge in benchmarks or automated scoring systems) show that LLMs can correlate with human judgment in some tasks, but their consistency is not yet on par with rigorous standards.
-              </p>
-
-              <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 my-6 rounded-r-lg">
-                <p className="text-base md:text-lg leading-relaxed text-black/80 dark:text-white/80">
-                  <strong>Takeaway:</strong> Trust is task-dependent. An LLM's output can be both helpful and unreliable depending on how its speed and fluency interact with the application.
-                </p>
-              </div>
-
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white">
-                <span className="text-accent-blue mr-3">04</span>
-                Mitigating the Risks
-              </h2>
-              
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                There are practical approaches to enhance reliability even at "Mach 5" speeds:
-              </p>
-
-              <ul className="space-y-4 mb-8">
-                <li className="flex gap-4">
-                  <span className="text-accent-blue font-bold text-xl">•</span>
-                  <div>
-                    <strong className="text-black dark:text-white">Human-in-the-loop Systems:</strong>
-                    <span className="text-black/80 dark:text-white/80"> Human oversight, especially for high-stakes decisions, remains crucial.</span>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <span className="text-accent-blue font-bold text-xl">•</span>
-                  <div>
-                    <strong className="text-black dark:text-white">Hybrid Verification:</strong>
-                    <span className="text-black/80 dark:text-white/80"> Combining LLMs with rule-based checks or retrieval-augmented generation decreases the likelihood of hallucinations.</span>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <span className="text-accent-blue font-bold text-xl">•</span>
-                  <div>
-                    <strong className="text-black dark:text-white">Transparent Confidence Indicators:</strong>
-                    <span className="text-black/80 dark:text-white/80"> Future models might output uncertainty estimates alongside answers, helping users gauge reliability.</span>
-                  </div>
-                </li>
-              </ul>
-
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                Research on bias, alignment, and robust evaluation is ongoing, but no model today should be considered infallible without additional safeguards.
-              </p>
-
-              {/* Chart 3 - Trust vs Oversight Matrix */}
-              <TrustOversightMatrix />
-
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-12"></div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-black dark:text-white">
-                <span className="text-accent-blue mr-3">05</span>
-                The Future of Trust in AI
-              </h2>
-              
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-black/80 dark:text-white/80">
-                At extreme speeds of operation, the core challenge is no longer <em>can an LLM be fast</em>, but <em>can an LLM be reliably trusted even while running ahead of human attention</em>. The technology's rapid progress makes it a powerful tool — but also one requiring thoughtful integration with human judgment and verification frameworks.
-              </p>
-
-              <p className="text-base md:text-lg leading-relaxed mb-8 text-black/80 dark:text-white/80">
-                As we build AI systems that operate ever closer to "Mach 5" in decision velocity, the design of trust mechanisms — not just performance benchmarks — will define whether these systems are safe, reliable, and ultimately beneficial.
-              </p>
-
-              <div className="bg-gradient-to-r from-accent-blue/10 to-purple-500/10 border border-accent-blue/30 rounded-xl p-6 my-8">
-                <p className="text-base md:text-lg leading-relaxed text-black/90 dark:text-white/90 italic">
-                  "The question isn't whether AI can outpace us — it's whether we can build systems that remain trustworthy even when they do."
-                </p>
-              </div>
-            </article>
+            </div>
+          </article>
         </div>
       </div>
 
