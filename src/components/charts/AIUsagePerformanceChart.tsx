@@ -1,4 +1,4 @@
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts'
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const AIUsagePerformanceChart = () => {
   // Heavy AI Use cluster: Fast completion, Low comprehension
@@ -49,7 +49,7 @@ const AIUsagePerformanceChart = () => {
       {/* Desktop Chart */}
       <div className="hidden sm:block">
         <ResponsiveContainer width="100%" height={450}>
-          <ScatterChart margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+          <ScatterChart margin={{ top: 50, right: 30, left: 110, bottom: 60 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
             <XAxis 
               type="number"
@@ -67,7 +67,7 @@ const AIUsagePerformanceChart = () => {
               unit="%"
               domain={[0, 100]}
               tick={{ fill: '#6b7280', fontSize: 12 }}
-              label={{ value: 'Comprehension Score (%)', angle: -90, position: 'insideLeft', fill: '#6b7280' }}
+              label={{ value: 'Comprehension Score (%)', angle: -90, position: 'center', offset: -25, fill: '#6b7280' }}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
             <Legend 
@@ -86,7 +86,7 @@ const AIUsagePerformanceChart = () => {
       {/* Mobile Chart */}
       <div className="block sm:hidden">
         <ResponsiveContainer width="100%" height={400}>
-          <ScatterChart margin={{ top: 20, right: 10, left: 5, bottom: 70 }}>
+          <ScatterChart margin={{ top: 40, right: 10, left: 15, bottom: 70 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
             <XAxis 
               type="number"
@@ -104,7 +104,8 @@ const AIUsagePerformanceChart = () => {
               unit="%"
               domain={[0, 100]}
               tick={{ fill: '#6b7280', fontSize: 10 }}
-              width={40}
+              width={45}
+              label={{ value: 'Score (%)', angle: -90, position: 'insideLeft', offset: 5, fill: '#6b7280', fontSize: 10 }}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
             <Legend 

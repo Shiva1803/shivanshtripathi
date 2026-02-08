@@ -1,7 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
-
 const Hero = () => {
-  const { theme } = useTheme()
   
   return (
     <section className="mb-12 sm:mb-16" id="about">

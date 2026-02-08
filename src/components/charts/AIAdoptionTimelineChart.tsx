@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const AIAdoptionTimelineChart = () => {
   const data = [
@@ -27,7 +27,7 @@ const AIAdoptionTimelineChart = () => {
       {/* Desktop Chart */}
       <div className="hidden sm:block">
         <ResponsiveContainer width="100%" height={400}>
-          <AreaChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 40 }}>
+          <AreaChart data={data} margin={{ top: 50, right: 30, left: 110, bottom: 40 }}>
             <defs>
               <linearGradient id="colorAdoption" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
@@ -41,7 +41,7 @@ const AIAdoptionTimelineChart = () => {
               label={{ value: 'Year', position: 'insideBottom', offset: -10, fill: '#6b7280' }}
             />
             <YAxis 
-              label={{ value: 'Developers Using AI Tools (%)', angle: -90, position: 'insideLeft', fill: '#6b7280' }}
+              label={{ value: 'Developers Using AI Tools (%)', angle: -90, position: 'center', offset: -95, fill: '#6b7280' }}
               tick={{ fill: '#6b7280' }}
               domain={[0, 100]}
             />
@@ -61,7 +61,7 @@ const AIAdoptionTimelineChart = () => {
       {/* Mobile Chart */}
       <div className="block sm:hidden">
         <ResponsiveContainer width="100%" height={350}>
-          <AreaChart data={data} margin={{ top: 20, right: 10, left: 10, bottom: 50 }}>
+          <AreaChart data={data} margin={{ top: 40, right: 10, left: 15, bottom: 50 }}>
             <defs>
               <linearGradient id="colorAdoptionMobile" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
@@ -77,7 +77,8 @@ const AIAdoptionTimelineChart = () => {
             <YAxis 
               tick={{ fill: '#6b7280', fontSize: 10 }}
               domain={[0, 100]}
-              width={35}
+              width={45}
+              label={{ value: 'Adoption (%)', angle: -90, position: 'insideLeft', offset: 5, fill: '#6b7280', fontSize: 10 }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Area 

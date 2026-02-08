@@ -53,7 +53,10 @@ export const OperationalRangeChart: React.FC = () => {
               fontSize: '11px'
             }}
             labelStyle={{ color: '#2c2c2c', fontWeight: 'bold' }}
-            formatter={(value: number, name: string, props: any) => [`${value} km`, props.payload.fullName]}
+            formatter={(value: number | undefined, _name: string | undefined, props: any) => {
+              if (value === undefined) return ['', ''];
+              return [`${value} km`, props.payload.fullName];
+            }}
           />
           <Bar dataKey="range" radius={[4, 4, 0, 0]}>
             {data.map((entry, index) => (
@@ -102,7 +105,10 @@ export const OperationalRangeChart: React.FC = () => {
               fontSize: '12px'
             }}
             labelStyle={{ color: '#2c2c2c', fontWeight: 'bold' }}
-            formatter={(value: number, name: string, props: any) => [`${value} km`, props.payload.fullName]}
+            formatter={(value: number | undefined, _name: string | undefined, props: any) => {
+              if (value === undefined) return ['', ''];
+              return [`${value} km`, props.payload.fullName];
+            }}
           />
           <Bar dataKey="range" radius={[4, 4, 0, 0]}>
             {data.map((entry, index) => (
