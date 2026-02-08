@@ -63,7 +63,7 @@ const BlogPost3: React.FC = () => {
             </h1>
             
             <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
-              Published: December 2025
+              Published: January 13, 2026
             </p>
 
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>

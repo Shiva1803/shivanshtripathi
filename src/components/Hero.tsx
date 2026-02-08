@@ -5,7 +5,7 @@ const Hero = () => {
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight">Hi, I'm <span className="text-yellow-600 dark:text-yellow-400">Shivansh Tripathi</span></h1>
       <p className="text-lg sm:text-xl text-gray-600 dark:text-secondary-gray mb-4 sm:mb-6">Pre-Final Year Engineering Undergrad</p>
       <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
-        I'm a passionate developer focused on <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">Backend development</span>, <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">DevOps</span> and <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">Web3</span>. I also primarily code in C++ and occasionally solve problems
+        I'm a passionate developer focused on <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">Backend development</span>, <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">DevOps</span> and <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">Web3</span>. I also primarily code in <span className="text-yellow-600 dark:text-[hsl(48,84%,85%)]">C++</span> and occasionally solve problems
         on Leetcode.
         I'm currently pursuing my Bachelors of Technology from <a href="https://jaipur.manipal.edu/" className="text-yellow-600 dark:text-[hsl(48,84%,85%)] no-underline">Manipal University Jaipur</a>, specializing in
         Artificial Intelligence.

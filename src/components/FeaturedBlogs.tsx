@@ -13,28 +13,28 @@ const FeaturedBlogs = () => {
         {
             title: "Can an LLM be trusted at Mach 5?",
             excerpt: "Why probablistic Intelligence struggles in hypersonic, safety-critical systems?",
-            date: "Dec 6, 2025",
+            date: "Feb 6, 2026",
             category: "AI, Aerospace",
             image: "/SR-71.jpg"
         },
         {
             title: "The Future of AI-Assisted Coding and How It Will Shape Development",
             excerpt: "Tips and tricks to customize your design system efficiently using tailwind.config.js.",
-            date: "Dec 15, 2025",
+            date: "Jan 26, 2026",
             category: "AI, Knowledge",
             image: "/claudeai.jpg"
         },
         {
             title: "The Energy Cost of Intelligence: From Ant Colonies to Data Centers",
             excerpt: "Strategies for database indexing, caching strategies, and API response time optimization.",
-            date: "Dec 21, 2025",
+            date: "Jan 15, 2026",
             category: "AI, Knowledge",
             image: "/pexels-pixabay-46169.jpg"
         },
         {
             title: "Soviet Aerospace. Brutal yet Beautiful.",
             excerpt: "Exploring the latest trends in decentralized applications and smart contract security.",
-            date: "Dec 30, 2025",
+            date: "Jan 13, 2026",
             category: "Aerospace",
             image: "/SovietAerospace.png"
         }
